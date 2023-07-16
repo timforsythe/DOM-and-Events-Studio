@@ -7,8 +7,9 @@ function init () {
     const shuttleHeight = document.getElementById("spaceShuttleHeight");
     const landButton = document.getElementById("landing");
     const takeoffButton = document.getElementById("takeoff");
+    const abortButton = document.getElementById("missionAbort");
 
-    
+
     takeoffButton.addEventListener('click', event => {
         let response = window.confirm("Confirm that the shuttle is ready for takeoff.");
         if (response) {
@@ -16,7 +17,7 @@ function init () {
             background.style.backgroundColor = 'blue';
             shuttleHeight.innerHTML = '10,000';
         }
-    }
+    });
 
     landButton.addEventListener('click', event => {
         window.alert("The shuttle is landing. Landing gear engaged.")
@@ -24,6 +25,15 @@ function init () {
         background.style.backgroundColor = 'green';
         shuttleHeight.innerHTML = '0';
       });
+
+      abortButton.addEventListener('click', event => {
+        let response = window.confirm("Confirm that you want to abort the mission.");
+        if (response) {
+            status.innerHTML = 'Mission aborted.';
+            background.style.backgroundColor = 'green';
+            shuttleHeight.innerHTML = '0';
+        }
+    });
 
 }
 
